@@ -126,6 +126,7 @@ public:
 
 
 int main() {
+    setlocale(LC_ALL, "Russian");
     cout << "=== 1. СТАТИЧЕСКИЕ И ДИНАМИЧЕСКИЕ ОБЪЕКТЫ Point ===" << endl;
     {
         Point p1;             // Конструктор без параметров
