@@ -70,6 +70,59 @@ public:
         cout << "  -> color = " << color << endl;
     }
 };
+class LineByValue {
+private:
+    Point start;
+    Point end;
+
+public:
+    LineByValue() : start(), end() {
+        cout << "LineByValue()" << endl;
+    }
+
+    LineByValue(int x1, int y1, int x2, int y2) : start(x1, y1), end(x2, y2) {
+        cout << "LineByValue(int, int, int, int)" << endl;
+    }
+
+    LineByValue(const LineByValue& other) : start(other.start), end(other.end) {
+        cout << "LineByValue(const LineByValue&)" << endl;
+    }
+
+    ~LineByValue() {
+        cout << "~LineByValue()" << endl;
+    }
+};
+
+class LineByPointer {
+private:
+    Point* start;
+    Point* end;
+
+public:
+    LineByPointer() {
+        cout << "LineByPointer()" << endl;
+        start = new Point();
+        end = new Point();
+    }
+
+    LineByPointer(int x1, int y1, int x2, int y2) {
+        cout << "LineByPointer(int, int, int, int)" << endl;
+        start = new Point(x1, y1);
+        end = new Point(x2, y2);
+    }
+
+    LineByPointer(const LineByPointer& other) {
+        cout << "LineByPointer(const LineByPointer&)" << endl;
+        start = new Point(*other.start);
+        end = new Point(*other.end);
+    }
+
+    ~LineByPointer() {
+        cout << "~LineByPointer()" << endl;
+        delete start;
+        delete end;
+    }
+};
 
 
 int main() {
