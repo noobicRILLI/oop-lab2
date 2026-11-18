@@ -152,7 +152,7 @@ int main() {
         ColoredPoint cp3(cp2);
         cp3.changeColor(128);
         cp3.print();
-    } // Сначала ~ColoredPoint(), затем ~Point()
+    }
 
     cout << "\n=== 3. КОМПОЗИЦИЯ: ПО ЗНАЧЕНИЮ VS ПО УКАЗАТЕЛЮ ===" << endl;
     {
@@ -181,8 +181,8 @@ int main() {
         ptrA->setXY(77, 77);
         cout << "Указатели после изменения ptrA:" << endl;
         ptrA->print(); // (77, 77)
-        ptrB->print(); // (77, 77) — изменился тоже!
-        delete ptrA;   // Удаляем только ОДИН раз (delete ptrB вызвал бы ошибку)
+        ptrB->print(); // (77, 77) — изменился тоже
+        delete ptrA;   // Удаляем 
     }
 
     cout << "\n=== 5. УКАЗАТЕЛЬ БАЗОВОГО КЛАССА НА ПОТОМКА ===" << endl;
@@ -196,7 +196,7 @@ int main() {
         cout << "Вызов print() через ColoredPoint* (вызывается ColoredPoint::print):" << endl;
         child->print();
 
-        // Удаляем через указатель своего типа, так как ~Point() не виртуальный
+        // Удаляем 
         delete child;
     }
 
