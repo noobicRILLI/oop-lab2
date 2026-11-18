@@ -1,6 +1,46 @@
-﻿
+﻿#include <iostream>
+using namespace std;
 
-#include <iostream>
+class Point {
+protected:
+    int x;
+    int y;
+
+public:
+    Point() : x(0), y(0) {
+        cout << "Point() [x=" << x << ", y=" << y << "]" << endl;
+    }
+
+    Point(int x, int y) : x(x), y(y) {
+        cout << "Point(int x, int y) [x=" << this->x << ", y=" << this->y << "]" << endl;
+    }
+
+    Point(const Point& p) : x(p.x), y(p.y) {
+        cout << "Point(const Point& p) [x=" << x << ", y=" << y << "]" << endl;
+    }
+
+    ~Point() {
+        cout << "~Point() [x=" << x << ", y=" << y << "]" << endl;
+    }
+
+    void print() {
+        cout << "Point: (" << x << ", " << y << ")" << endl;
+    }
+
+    void setXY(int newX, int newY);
+    void move(int dx, int dy);
+};
+
+void Point::setXY(int newX, int newY) {
+    x = newX;
+    y = newY;
+}
+
+void Point::move(int dx, int dy) {
+    x += dx;
+    y += dy;
+}
+
 
 int main() {
     cout << "=== 1. СТАТИЧЕСКИЕ И ДИНАМИЧЕСКИЕ ОБЪЕКТЫ Point ===" << endl;
