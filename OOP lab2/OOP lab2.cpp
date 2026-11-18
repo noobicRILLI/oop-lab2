@@ -40,6 +40,36 @@ void Point::move(int dx, int dy) {
     x += dx;
     y += dy;
 }
+class ColoredPoint : public Point {
+private:
+    int color;
+
+public:
+    ColoredPoint() : Point(), color(0) {
+        cout << "ColoredPoint() [color=" << color << "]" << endl;
+    }
+
+    ColoredPoint(int x, int y, int color) : Point(x, y), color(color) {
+        cout << "ColoredPoint(int, int, int) [color=" << this->color << "]" << endl;
+    }
+
+    ColoredPoint(const ColoredPoint& p) : Point(p), color(p.color) {
+        cout << "ColoredPoint(const ColoredPoint& p) [color=" << color << "]" << endl;
+    }
+
+    ~ColoredPoint() {
+        cout << "~ColoredPoint() [x=" << x << ", y=" << y << ", color=" << color << "]" << endl;
+    }
+
+    void changeColor(int newColor) {
+        color = newColor;
+    }
+
+    void print() {
+        Point::print();
+        cout << "  -> color = " << color << endl;
+    }
+};
 
 
 int main() {
